@@ -1,4 +1,4 @@
-var container, canvas, context;
+var container, canvas, context, btn;
 var WIDTH, HEIGHT;
 var MAX_LIFE = 500;
 var LINE_WIDTH = 3;
@@ -10,6 +10,7 @@ setInterval(loop, 1000/60);
 
 function init() {
     container = document.getElementById('container');
+    btn = document.getElementsByClassName("switch-up")[0];
 
     WIDTH = window.innerWidth;
     HEIGHT = window.innerHeight;
@@ -25,6 +26,7 @@ function init() {
 
     branches = new Array();
 
+    btn.addEventListener('click', switchUp);
     window.addEventListener('mousedown', onMouseDown, false);
 }
 
@@ -32,10 +34,16 @@ function onMouseDown(e) {
     if(!e)
         var e = window.event;
     
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        // calculations made to get the branch starting point to match cursor
+        mouseX = e.clientX - 8;
+        mouseY = e.clientY - 29;
 
         branches.push(new Branch(mouseX, mouseY, MAX_LIFE));
+}
+
+// This function will change from branching after each click to branching after cursor movement on the canvas
+function switchUp() {
+    console.log("switch-up");
 }
 
 function loop() {
