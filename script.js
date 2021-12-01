@@ -1,6 +1,7 @@
 var container, canvas, context;
 var WIDTH, HEIGHT;
-var MAX_LIFE = 500
+var MAX_LIFE = 500;
+var LINE_WIDTH = 3;
 
 var branches, mouseX, mouseY;
 
@@ -40,6 +41,7 @@ function onMouseDown(e) {
 function loop() {
     context.beginPath();
     context.strokeStyle = "#fff6";
+    context.lineWidth = LINE_WIDTH
 
     for(var i = 0; i < branches.length; i++) {
         var branch = branches[i];
