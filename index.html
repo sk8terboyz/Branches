@@ -4,13 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
         <title>Branching</title>
     </head>
     <body>
         <main>
             <div class="button">
                 <button class="slide_in switch-up" type="button">switch-up</button>
+            </div>
+            <div class=slideContainer>
+                <span id="sliderSpeed">Speed: <span id="slider--output">10</span></span>
+                <input type="range" min="1" max="20" value="10" id="myRange">
             </div>
             <div id="container"></div>
             <script src="/script.js"></script>
